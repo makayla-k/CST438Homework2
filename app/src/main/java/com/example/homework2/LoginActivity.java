@@ -36,7 +36,7 @@ public class LoginActivity extends AppCompatActivity {
     private String pass;
 
     private static final String TAG = LoginActivity.class.getSimpleName();
-    public static List<Pair<String, String>> userList;
+    private static List<Pair<String, String>> userList;
     private Pair<String,String> pair1 = Pair.create("Bret","password");
     private Pair<String,String> pair2 = Pair.create("Antonette","password");
     private Pair<String,String> pair3 = Pair.create("Samantha","password");
@@ -58,8 +58,6 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
-        userList = new ArrayList<>(Arrays.asList(pair1, pair2, pair3, pair4, pair5, pair6, pair7, pair8, pair9, pair10));
 
         username = findViewById(R.id.etUsername);
         password = findViewById(R.id.etPassword);
@@ -151,6 +149,11 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    public static boolean verifyUsername(String user, List<User> users){
+
+        return User.compareUsernames(user, users) != null;
     }
 
 }

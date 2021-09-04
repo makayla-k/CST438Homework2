@@ -17,14 +17,14 @@ import static org.junit.Assert.*;
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
 public class ExampleUnitTest {
-//    @Test
-//    public void checkUsername() {
-//        Random rand = new Random();
-//        List<Pair<String, String>> users = LoginActivity.userList;
-//        int index = rand.nextInt(users.size());
-//        String username = users.get(index).first;
-//
-//        assertTrue(LoginActivity.checkUsername(username));
-//        assertFalse(LoginActivity.checkUsername("", username);
-//    }
+    @Test
+    public void checkUsername() {
+        Random rand = new Random();
+        List<User> users = User.getAllUsernames();
+        int index = rand.nextInt(users.size());
+        String username = users.get(index).getUsername();
+
+        assertTrue(LoginActivity.verifyUsername(username, users));
+        assertFalse(LoginActivity.verifyUsername(username, null));
+    }
 }
